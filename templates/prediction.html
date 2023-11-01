@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        p:first-of-type {
+            font-size: 24px;
+            color: #0077b6; /* A deep blue color for the probability text */
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction Result</h1>
+    <p>Predicted Probability of Heart Disease: {{ predicted_probability | float | round(2) }}%</p>
+    <p>Prediction: {{ prediction }}</p>
+</body>
+</html>
