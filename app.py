@@ -4,7 +4,7 @@ from sklearn.naive_bayes import GaussianNB
 
 app = Flask(__name__)
 
-# Load the dataset and train the Bayesian model
+# Load datset dan Train Model Bayesian
 df = pd.read_csv('heart_disease_dataset.csv')
 X = df.drop(columns=['target'])
 y = df['target']
@@ -19,18 +19,18 @@ def index():
 def predict():
     user_responses = []
 
-    # Iterate through the features and get user input from the form
+    # Membaca input user dari kolom
     for feature in X.columns:
         response = request.form[feature]
         user_responses.append(float(response))
 
-    # Calculate the posterior probability
+    # Kalkulasi probabilitas dari input user
     posterior_prob = model.predict_proba([user_responses])
 
-    # Get the predicted probability of having heart disease
+    # Mengubah format probabilitas menjadi persentase
     predicted_probability = posterior_prob[0][1] * 100
 
-    # Determine the prediction result
+    # Hasil Output
     if predicted_probability > 0.5:
         prediction = "You may have heart disease."
     else:
