@@ -31,7 +31,7 @@ def predict():
     predicted_probability = posterior_prob[0][1] * 100
 
     # Hasil Output
-    if predicted_probability > 0.5:
+    if predicted_probability > 50:
         prediction = "You may have heart disease."
     else:
         prediction = "You likely do not have heart disease."
